@@ -29,7 +29,7 @@ public class RegistController extends HttpServlet {
 		// 1. 주소에 따라 어떤 페이지를 보여줄지 지정
 		if (action == null) {
 			// forward 실행시 페이지는 이동하지만 주소는 바뀌지 않음.
-			// forward 실행시 requset, response 데이터를 다시 전달해줌.
+			// forward 실행시 request, response 데이터를 다시 전달해줌.
 			getServletContext().getRequestDispatcher("/rcontrol?action=list").forward(request, response);
 		} else {
 			switch (action) {
@@ -45,7 +45,7 @@ public class RegistController extends HttpServlet {
 		// 2. 페이지에 맞는 데이터를 view 페이지로 전달해주면 된다 (포워딩)
 	}
 
-	// 2-1. model 인 RegistService.java 에게 데이터 달라고 요청(메소드 실행)
+	// 2-1. model인 RegistService.java 에게 데이터 달라고 요청(메소드 실행)
 	private String info(HttpServletRequest request, HttpServletResponse response) {
 		Regist prod = service.find(request.getParameter("id"));
 		// setAttribute(key, value) 형태로 request 객체에 저장
